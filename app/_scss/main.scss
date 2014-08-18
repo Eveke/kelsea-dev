@@ -100,6 +100,9 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+$screen-sm:   768px;
+$bio-spacing: 26px;
+
 html, body {
   height: 100%;
   font-family: "Cabin", sans-serif;
@@ -120,6 +123,10 @@ body {
    }
 
   }
+
+  @media(max-width: $screen-sm) {
+    overflow: initial;
+  }
 }
 
 
@@ -130,6 +137,14 @@ body {
     min-height: 25px;
     min-width: 35px;
 
+    @media(max-width: $screen-sm) {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        min-height: 20px;
+        min-width: 27px;
+    }
+
     a {
       img {
         width: 35px;
@@ -137,8 +152,6 @@ body {
       }
     }
   }
-
-$bio-spacing: 26px;
 
 #bio {
   background-color: #000;
@@ -161,6 +174,11 @@ $bio-spacing: 26px;
     position: absolute;
     right: 95px;
     top: 95px;
+
+    @media(max-width: $screen-sm) {
+        right: 30px;
+        top: 43px;
+    }
 
     img {
       border: 2px solid #FFF;
@@ -223,6 +241,38 @@ $bio-spacing: 26px;
     }
   }
 
+  @media(max-width: $screen-sm) {
+    height: auto;
+    max-height: none;
+    min-height: 0px;
+    padding: 150px 10px 60px 10px;
+
+    .bio {
+
+      .container {
+
+        header {
+
+          h1 {
+            @include font-size(18);
+          }
+
+          h2 {
+            @include font-size(36);
+          }
+
+        }
+
+        article {
+          margin: 26px 10px;
+          width: auto;
+          max-width: none;
+          @include font-size(14);
+        }
+      }
+    }
+  }
+
 }
 
 #work {
@@ -238,6 +288,10 @@ $bio-spacing: 26px;
     background-image: none;
   }
 
+  .carousel-indicators {
+    display: none;
+  }
+
   .item {
 
     header h1 {
@@ -250,6 +304,17 @@ $bio-spacing: 26px;
       background-color: #FFF;
       transition: 0.3s all ease-out;
       position: relative;
+
+      .content-wrapper {
+        > div {
+          margin-top: $bio-spacing;
+        }
+
+        .content {
+          margin-top: $bio-spacing;
+        }
+      }
+
     }
 
     &.active.left, &.next.left {
@@ -263,7 +328,12 @@ $bio-spacing: 26px;
       padding: 25px 0px;
 
       .mockup {
-        margin-top: 25px;
+        margin-top: 40px;
+
+        .caption {
+          margin-top: 25px;
+          @include font-size(12)
+;        }
       }
     }
 
@@ -298,6 +368,62 @@ $bio-spacing: 26px;
 
         &.active {
           background-color: #282828;
+        }
+      }
+    }
+  }
+
+  @media(max-width: $screen-sm) {
+    opacity: 1;
+    overflow-y: initial;
+
+    .work-type-selector {
+      .btn-group {
+        .btn {
+          padding: 15px 30px;
+        }
+      }
+    }
+
+    .carousel-indicators {
+      top: 400px;
+      display: block;
+
+      li {
+        border: none;
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        background-color: #898989;
+        margin: 0px;
+
+        &.active {
+          background-color: #000;
+          width: 4px;
+          height: 4px;
+          border-radius: 2px;
+          border: none;
+        }
+      }
+    }
+
+    .item {
+
+      header h1 {
+      }
+
+      .info {
+        padding: 40px 0px 55px 0px;
+
+        .content-wrapper {
+          > div {
+            margin-top: 20px;
+          }
+
+          .content {
+            margin-top: 20px;
+            max-height: 160px;
+          }
         }
       }
     }

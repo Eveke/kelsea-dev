@@ -3,29 +3,40 @@ layout: default
 title: kelsea.io
 ---
 
-{% assign sorted_posts = (site.posts | sort: 'categories') %}
-{% for post in sorted_posts %}
-<article class="item {{post.category}} {% if forloop.index0 == 0 %}active{% endif %}" data-category="{{post.category}}">
-  <div class="container info">
-    <header class="row text-center">
-      <h1>{{post.title}}</h1>
-    </header>
-    <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-      <p>{{post.content}}</p>
-      <div class="text-center">
-        <p><a class="link" href="http://{{post.link}}" target="_blank">{{post.link}}</a></p>
+<!-- Wrapper for slides -->
+<ol class="carousel-indicators">
+  {% for post in site.posts %}
+  <li data-target="#work" data-slide-to="{{ forloop.index0 }}" {% if forloop.index0 == 0 %}class="active"{% endif %}></li>
+  {% endfor %}
+</ol>
+
+<div class="carousel-inner">
+
+  {% assign sorted_posts = (site.posts | sort: 'categories') %}
+  {% for post in sorted_posts %}
+  <article class="item {{post.category}} {% if forloop.index0 == 0 %}active{% endif %}" data-category="{{post.category}}">
+    <div class="container info">
+      <header class="row text-center">
+        <h1>{{post.title}}</h1>
+      </header>
+      <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 content-wrapper">
+        <div class="content">{{post.content}}</div>
+        <div class="text-center">
+          <p><a class="link" href="http://{{post.link}}" target="_blank">{{post.link}}</a></p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="mockups">
-    <div class="container">
-      {% for mockup in post.mockups %}
-      <div class="mockup row text-center">
-        <img src="{{mockup.image}}" alt='{{mockup.caption}}' title='{{mockup.caption}}'/>
-        <p>{{mockup.caption}}</p>
-      <div>
-      {% endfor %}
+    <div class="mockups">
+      <div class="container">
+        {% for mockup in post.mockups %}
+        <div class="mockup row text-center">
+          <img src="{{mockup.image}}" alt='{{mockup.caption}}' title='{{mockup.caption}}'/>
+          <p class="caption">{{mockup.caption}}</p>
+        <div>
+        {% endfor %}
+      </div>
     </div>
-  </div>
-</article>
-{% endfor %}
+  </article>
+  {% endfor %}
+
+</div>

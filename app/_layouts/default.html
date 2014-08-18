@@ -35,17 +35,17 @@
         <div class="container">
           <header class="row">
             <h1>Think. Design. Iterate.</h1>
-            <h2>Then do it all again.</h2>
+            <h2>Then do it&nbsp;all again.</h2>
           </header>
           <article class="row">
             <p>My name is Kelsea I currently work for CrossFit HQ  as a UI/UX designer among other things. Working in house, I have had the chance to work on many different projects, from mobile apps to sports prgrams. My name is Kelsea I currently work for CrossFit HQ  as a UI/UX designer among other things. Working in house, I have had the chance to work on many different projects, from mobile apps to sports prgrams. My name is Kelsea I currently work for CrossFit HQ  as a UI/UX designer among other things. Working in house, I have had the chance to work on many different projects, from mobile apps to sports prgrams.</p>
-            <a class="btn btn-white" id="viewWork" href="#work">View Work</a>
+            <a class="btn btn-white hidden-xs" id="viewWork" href="#work">View Work</a>
           </article>
         </div>
       </div>
     </section>
-    <section id="work" class="carousel slide" data-ride="carousel">
-      <div class="work-type-selector carousel-indeicators">
+    <section id="work" class="carousel slide">
+      <div class="work-type-selector">
         <div class="btn-group" data-toggle="buttons">
           <label class="btn btn-primary active" id="web">
             <input type="radio" name="options" checked> Web
@@ -57,21 +57,18 @@
             <input type="radio" name="options"> Print
           </label>
         </div>
-        <div class="back-to-top-wrapper">
+        <div class="back-to-top-wrapper hidden-xs">
           <a href="#" id="backToTop"><img src="/img/uparrow.png"/></a>
         </div>
       </div>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          {{ content }}
-        </div>
+      {{content}}
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#work" role="button" data-slide="prev">
+        <a class="hidden-xs left carousel-control" href="#work" role="button" data-slide="prev">
           <img src="/img/arrow-left.png" alt="previous" title="previous"/>
         </a>
-        <a class="right carousel-control" href="#work" role="button" data-slide="next">
+        <a class="hidden-xs right carousel-control" href="#work" role="button" data-slide="next">
           <img src="/img/arrow-right.png" alt="next" title="next"/>
         </a>
       </div>

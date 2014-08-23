@@ -111,6 +111,7 @@ html, body {
 body {
   transition: all .6s ease-out 0.25s;
   overflow: hidden;
+  margin-top: -100%;
   background-color: #000;
 
   &.is-showing-work {
@@ -280,7 +281,7 @@ body {
   height: 100%;
   background-color: #FFF;
   transition: all .6s ease-out;
-  opacity: 0;
+  /*opacity: 0;*/
 
   .carousel-control.left, .carousel-control.right {
     top: 270px;

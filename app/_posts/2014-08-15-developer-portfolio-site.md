@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Developer Portfolio Site"
+title:  "Wentz.io"
 category: web
-link: www.wentz.io
+link: wentz.io
 mockups:
   - image: /img/wentz-index.png
     mobileImage: http://placekitten.com/g/50/50
-    caption: "Home Page"
+    caption: "Home page."
 ---
-**Project Goals:** This is Photoshop’s version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
+**Project Goals:** As an online portfolio, the site contains a timeline of past work, contact info and a project spotlight. Meant to be consumed at a glance, the site is simple and straightforward with only a single landing page.

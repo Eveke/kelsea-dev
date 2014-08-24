@@ -110,30 +110,54 @@ html, body {
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  transition: all .6s ease-out 0.25s;
-  overflow: hidden;
+
   background-color: #000;
 
-  &.is-showing-work {
-   #bio{
-     opacity: 0;
-   }
+  .page-wrapper {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    transition: all .6s ease 0.25s;
+    overflow: hidden;
+    background-color: #000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px; //this stretches content out to fill parent without percentage issues
+    width: 100%;
+    background-color: #000;
+    z-index: 10;
 
-   #work {
-     opacity: 1;
-   }
+    &.is-showing-work {
+     bottom: 100%;
 
+     #bio{
+       opacity: 0;
+     }
+
+     #work {
+       opacity: 1;
+     }
+
+    }
+
+    &.is-showing-menu {
+      overflow-x: hidden;
+      left: 100%;
+
+      .menu-button-wrapper {
+        position: fixed !important;
+        z-index: 10;
+      }
+    }
   }
-
 }
 
 
 .menu-button-wrapper {
   position: absolute;
-  top: 53px;
-  left: 23px;
+  top: 39px;
+  left: 15px;
   min-height: 25px;
   min-width: 35px;
   z-index: 5;
@@ -380,30 +404,19 @@ body {
     background-color: transparent;
     width: 100%;
     position: relative;
-    vertical-align: middle;
-
-    &:before {
-      display: inline-block;
-      content: '';
-      vertical-align: middle;
-      margin-left: -0.25em;
-      height: 100%;
-    }
 
     .menu-button-wrapper, .back-to-top-wrapper {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      top: initial;
-      left: initial;
+      position: absolute;
+      display: block;
+      top: 39px; /*top padding + ((height of parent - height of element) / 2)*/
     }
 
     .menu-button-wrapper {
-      left: -15px;
+      left: 15px;
     }
 
     .back-to-top-wrapper {
-      right: -15px;
+      right: 15px;
     }
 
 

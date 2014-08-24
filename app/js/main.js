@@ -14,12 +14,23 @@
 
   $(document).on('click','#viewWork',function(e){
     e.preventDefault();
-    $('body').css('margin-top',"-" +$('#bio').css('height')).addClass('is-showing-work');
+    $('.page-wrapper').addClass('is-showing-work');
+  });
+
+  $(document).on('click','.menu-button-wrapper',function(e){
+    e.preventDefault();
+    var $body = $('.page-wrapper');
+
+    if ($body.hasClass('is-showing-menu')) {
+      $body.removeClass('is-showing-menu');
+    } else {
+      $body.addClass('is-showing-menu');
+    }
   });
 
   $(document).on('click','#backToTop',function(e){
     e.preventDefault();
-    $('body').css('margin-top',"0px").removeClass('is-showing-work');
+    $('.page-wrapper').removeClass('is-showing-work');
   });
 
   $(document).on('click','.work-type-selector .btn',function(e) {

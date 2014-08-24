@@ -3,12 +3,12 @@ layout: default
 title: kelsea.io
 ---
 
-<!-- Wrapper for slides -->
+<!-- Wrapper for slides
 <ol class="carousel-indicators">
   {% for post in site.posts %}
   <li data-target="#work" data-slide-to="{{ forloop.index0 }}" {% if forloop.index0 == 0 %}class="active"{% endif %}></li>
   {% endfor %}
-</ol>
+</ol>-->
 
 <div class="carousel-inner">
 
@@ -30,7 +30,8 @@ title: kelsea.io
       <div class="container">
         {% for mockup in post.mockups %}
         <div class="mockup row text-center">
-          <img src="{{mockup.image}}" alt='{{mockup.caption}}' title='{{mockup.caption}}'/>
+          <img src="{{mockup.mobileImage}}" alt="{{mockup.caption}}" title="{{mockup.caption}}" class="mobile"/>
+          <img src="{{mockup.image}}" alt='{{mockup.caption}}' title='{{mockup.caption}}' class="desktop"/>
           <p class="caption">{{mockup.caption}}</p>
         <div>
         {% endfor %}

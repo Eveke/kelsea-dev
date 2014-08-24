@@ -101,6 +101,7 @@ textarea {
    ========================================================================== */
 
 $screen-sm:   768px;
+$screen-xs:   480px;
 $bio-spacing: 26px;
 
 html, body {
@@ -109,14 +110,15 @@ html, body {
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
   transition: all .6s ease-out 0.25s;
   overflow: hidden;
-  margin-top: -100%;
   background-color: #000;
 
   &.is-showing-work {
    #bio{
-    opacity: 0;
+     opacity: 0;
    }
 
    #work {
@@ -125,75 +127,52 @@ body {
 
   }
 
-  @media(max-width: $screen-sm) {
-    overflow: initial;
-  }
 }
 
 
-  .menu-button-wrapper {
-    position: fixed;
-    left: 50px;
-    top: 38px;
-    min-height: 25px;
-    min-width: 35px;
+.menu-button-wrapper {
+  position: absolute;
+  top: 53px;
+  left: 23px;
+  min-height: 25px;
+  min-width: 35px;
+  z-index: 5;
+  color: #000;
 
-    @media(max-width: $screen-sm) {
-        position: absolute;
-        left: 15px;
-        top: 15px;
-        min-height: 20px;
-        min-width: 27px;
-    }
+  @media(max-width: $screen-sm) {
+      min-height: 20px;
+      min-width: 27px;
 
-    a {
-      img {
-        width: 35px;
-        height: 25px;
+      &:hover {
+        opacity: 1;
       }
-    }
   }
 
+  a {
+    img {
+      width: 35px;
+      height: 25px;
+    }
+  }
+}
+
 #bio {
-  background-color: #000;
-  color: #FFF;
+  background-color: #2d78cd;
+  color: #000;
   height: 100%;
   min-height: 100%;
   max-height: 100%;
   position: relative;
   transition: all .6s ease-out;
 
-  &:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -0.25em;
-  }
-
-  .picture-wrapper {
-    position: absolute;
-    right: 95px;
-    top: 95px;
-
-    @media(max-width: $screen-sm) {
-        right: 30px;
-        top: 43px;
-    }
-
-    img {
-      border: 2px solid #FFF;
-      border-radius: 39px;
-      min-height: 78px;
-      min-width: 78px;
-    }
-  }
-
   .bio {
     vertical-align: middle;
     display: inline-block;
     text-align: center;
     width: 99.5%;
+    position: absolute;
+    left: 30px;
+    bottom: 20%;
 
     .container {
       text-align: left;
@@ -205,15 +184,18 @@ body {
           color: #FFF; /* text color */
           font-family: "Cabin", sans-serif;
           @include font-size(24);
-          font-style: italic;
           text-transform: uppercase;
-          margin-bottom: $bio-spacing;
+          opacity: 0.73;
           margin-top: 0px;
+          margin-bottom: 5px;
+          margin-left: 2px;
+          font-weight: 400;
+          letter-spacing: 0.1em;
         }
 
         h2 {
-          color: #FFF; /* text color */
-          font-family: "NotoSerif", serif;
+          color: #000; /* text color */
+          font-family: "Oswald", sans-serif;
           @include font-size(60);
           text-transform: uppercase;
           margin-top: 0px;
@@ -222,37 +204,61 @@ body {
       }
 
       article {
-        margin-left: 31.782945736434%;
-        margin-top: $bio-spacing;
+        margin-top: 60px;
         font-family: "Cabin", sans-serif;
         @include font-size(16);
-        width: 41.666666666667%;
-        max-width: 41.666666666667%;
+        width: 65%;
+        max-width: 65%;
 
         .btn-white {
-          margin-top: $bio-spacing;
-          border: 1px solid #FFF;
+          margin-top: 30px;
+          border: 1px solid #000;
           border-radius: 0px;
-          color: #FFF;
+          color: #000;
           text-transform: uppercase;
           padding: 18px 60px;
           font-family: "Cabin", sans-serif;
+
+          &:hover,
+          &:focus
+          {
+            color: darken(#000,5%);
+            background-color: darken(#2d78cd, 3%);
+          }
         }
       }
     }
   }
 
   @media(max-width: $screen-sm) {
-    height: auto;
+    height: 100%;
     max-height: none;
     min-height: 0px;
-    padding: 150px 10px 60px 10px;
+    padding: 0px;
+    text-align: center;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em;
+    }
 
     .bio {
-
+      text-align: center;
+      position: relative;
+      bottom: initial;
+      left: initial;
+      top: initial;
+      padding: 0px 15px;
+      vertical-align: middle;
+      display: inline-block;
       .container {
 
         header {
+
+          text-align: center;
 
           h1 {
             @include font-size(18);
@@ -265,7 +271,8 @@ body {
         }
 
         article {
-          margin: 26px 10px;
+          text-align: center;
+          margin-top: 40px;
           width: auto;
           max-width: none;
           @include font-size(14);
@@ -279,7 +286,7 @@ body {
 #work {
   overflow-y: scroll;
   height: 100%;
-  background-color: #FFF;
+  background-color: #000;
   transition: all .6s ease-out;
   /*opacity: 0;*/
 
@@ -294,6 +301,8 @@ body {
   }
 
   .item {
+
+    background-color: #FFF;
 
     header h1 {
       @include font-size(24);
@@ -331,10 +340,31 @@ body {
       .mockup {
         margin-top: 40px;
 
+
+        .mobile {
+          display: none;
+        }
+
+        .desktop {
+          display: inline-block;
+        }
+
+
+        @media(max-width: $screen-xs) {
+
+            .mobile {
+              display: inline-block;
+            }
+
+            .desktop {
+              display: none;
+            }
+        }
+
         .caption {
           margin-top: 25px;
-          @include font-size(12)
-;        }
+          @include font-size(12);
+        }
       }
     }
 
@@ -347,15 +377,36 @@ body {
   .work-type-selector {
     text-align: center;
     padding: $bio-spacing 0px;
-    background-color: #000;
+    background-color: transparent;
     width: 100%;
     position: relative;
+    vertical-align: middle;
+
+    &:before {
+      display: inline-block;
+      content: '';
+      vertical-align: middle;
+      margin-left: -0.25em;
+      height: 100%;
+    }
+
+    .menu-button-wrapper, .back-to-top-wrapper {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      top: initial;
+      left: initial;
+    }
+
+    .menu-button-wrapper {
+      left: -15px;
+    }
 
     .back-to-top-wrapper {
-      position: absolute;
-      top: 35px;
-      right: 50px;
+      right: -15px;
     }
+
+
 
     .btn-group {
       border-radius: 0px;

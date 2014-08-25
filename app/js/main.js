@@ -14,12 +14,12 @@
 
   $(document).on('click','#viewWork',function(e){
     e.preventDefault();
-    $('.page-wrapper').addClass('is-showing-work');
+    $('body').addClass('is-showing-work');
   });
 
   $(document).on('click','.menu-button-wrapper',function(e){
     e.preventDefault();
-    var $body = $('.page-wrapper');
+    var $body = $('body');
 
     if ($body.hasClass('is-showing-menu')) {
       $body.removeClass('is-showing-menu');
@@ -30,7 +30,7 @@
 
   $(document).on('click','#backToTop',function(e){
     e.preventDefault();
-    $('.page-wrapper').removeClass('is-showing-work');
+    $('body').removeClass('is-showing-work');
   });
 
   $(document).on('click','.work-type-selector .btn',function(e) {
@@ -38,6 +38,27 @@
     var $this = $(this),
         index = $.inArray($this.attr('id'),items);
     $('#work').carousel(index);
+  });
+
+
+  $(document).on('submit','.contact-form form',function(e){
+      e.preventDefault();
+      var $this = $(e.target);
+
+      $.ajax({
+          headers : {
+             "X-Parse-Application-Id" : "T2u9K77ww0zPTmfTEB9mTk2TROLoaGSNEw4u8lqD",
+             "X-Parse-REST-API-Key"   : "jLvRGi2vvEvrrR6orHP9zjLBMEC4U2V3NydbtzEu"
+          },
+          url: $this.attr('action'),
+          data: $this.serialize(),
+          dataType: 'json',
+          method: 'post',
+          success: function(data)
+          {
+            console.log(data);
+          }
+        });
   });
 
   $('#work').on('slid.bs.carousel', activateTab);

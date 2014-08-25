@@ -110,13 +110,13 @@ html, body {
 }
 
 body {
-
   background-color: #000;
+  overflow: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 
-  .page-wrapper {
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    transition: all .6s ease 0.25s;
+  .page-wrapper, .pages-wrapper {
     overflow: hidden;
     background-color: #000;
     position: absolute;
@@ -127,28 +127,49 @@ body {
     width: 100%;
     background-color: #000;
     z-index: 10;
+  }
 
-    &.is-showing-work {
-     bottom: 100%;
+  .page-wrapper {
+    transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s;
+  }
 
-     #bio{
-       opacity: 0;
-     }
+  .pages-wrapper {
+    transition: all .6s cubic-bezier(0.86, 0, 0.07, 1);
+  }
 
-     #work {
-       opacity: 1;
-     }
+  &.is-showing-work {
 
+    .page-wrapper {
+       bottom: 100%;
+
+       #bio{
+         opacity: 0;
+       }
+
+       #work {
+         opacity: 1;
+       }
+
+      }
+
+      .back-to-top-wrapper {
+        transform: rotateZ(180deg) !important;
+      }
     }
 
-    &.is-showing-menu {
-      overflow-x: hidden;
+  &.is-showing-menu {
+
+    .pages-wrapper {
       left: 100%;
 
       .menu-button-wrapper {
         position: fixed !important;
         z-index: 10;
       }
+    }
+
+    #contactLink {
+      color: #949494;
     }
   }
 }
@@ -180,6 +201,164 @@ body {
   }
 }
 
+#about {
+  background-size: cover;
+  background-image: url('/img/hamburger.jpg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+
+  &:before {
+    display: inline-block;
+    content: '';
+    margin-left: -0.25em;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  .contact-form {
+    vertical-align: middle;
+    display: inline-block;
+    text-align: left;
+    color: #FFF;
+    width: 40%;
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-image: url(../img/contact-bkg.jpg);
+      background-size: cover;
+      background-color: #000;
+      -webkit-transition: all .5s ease-in-out;
+      -moz-transition: all .5s ease-in-out;
+      -o-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+    }
+
+     .background-image.focused {
+      -webkit-filter: blur(25px);
+      -moz-filter: blur(25px);
+      -o-filter: blur(25px);
+      -ms-filter: blur(25px);
+      filter: blur(25px);
+    }
+
+     label {
+      font-family: "Cabin", sans-serif;
+      @include font-size(18);
+      vertical-align: middle;
+      font-weight: 400;
+      margin-bottom: 10px;
+      padding-right: 30px;
+      display: table-cell;
+      width: 1%;
+    }
+
+     .form-element {
+      border-bottom: 1px solid #FFF;
+      margin-bottom: 25px;
+      display: table;
+      width: 100%;
+
+      &.message-element {
+        label, .input {
+          vertical-align: top;
+          overflow: hidden;
+          resize: none;
+        }
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+
+     .form-group .form-element .input {
+      background: rgba(0, 0, 0, 0);
+      border: none;
+      box-sizing: border-box;
+      height: 39px;
+      margin-top: -1px;
+      width: 100%;
+      display: table-cell;
+      font-family: "Cabin", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+      @include font-size(18);
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transition: all .5s ease-in-out;
+      -moz-transition: all .5s ease-in-out;
+      -o-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+      color: #FFF;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+
+     .input:-webkit-autofill,
+      input:-webkit-autofill,
+      textarea:-webkit-autofill,
+      select:-webkit-autofill
+      {
+        background-color: rgba(250, 255, 189, 0);
+        background-image: none;
+        color: #FFF;
+      }
+
+     .form-group .form-element:last-child {
+      border-bottom: none;
+    }
+
+     #message:focus
+    {
+      height: 150px;
+    }
+  }
+}
+
+.btn {
+  border-radius: 0px;
+  text-transform: uppercase;
+  padding: 18px 60px;
+  font-family: "Cabin", sans-serif;
+  background-color: transparent;
+  font-weight: 400;
+
+  &.btn-black {
+    color: #000;
+    border: 1px solid #000;
+  }
+
+  &.btn-white {
+    border: 1px solid #FFF;
+    color: #FFF;
+  }
+
+  &:hover,
+  &:focus
+  {
+    &.btn-white {
+      color: darken(#FFF,5%);
+      background-color: rgba(0,0,0,0.2);
+    }
+    color: darken(#000,5%);
+    background-color: rgba(0,0,0,0.05);
+  }
+}
+
 #bio {
   background-color: #2d78cd;
   color: #000;
@@ -187,7 +366,7 @@ body {
   min-height: 100%;
   max-height: 100%;
   position: relative;
-  transition: all .6s ease-out;
+  transition: all .6s ease 0.35s;
 
   .bio {
     vertical-align: middle;
@@ -234,21 +413,8 @@ body {
         width: 65%;
         max-width: 65%;
 
-        .btn-white {
-          margin-top: 30px;
-          border: 1px solid #000;
-          border-radius: 0px;
-          color: #000;
-          text-transform: uppercase;
-          padding: 18px 60px;
-          font-family: "Cabin", sans-serif;
-
-          &:hover,
-          &:focus
-          {
-            color: darken(#000,5%);
-            background-color: darken(#2d78cd, 3%);
-          }
+        .btn-black {
+            margin-top: 30px;
         }
       }
     }
@@ -409,6 +575,7 @@ body {
       position: absolute;
       display: block;
       top: 39px; /*top padding + ((height of parent - height of element) / 2)*/
+
     }
 
     .menu-button-wrapper {
@@ -417,6 +584,8 @@ body {
 
     .back-to-top-wrapper {
       right: 15px;
+      transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transform: rotateZ(0deg);
     }
 
 

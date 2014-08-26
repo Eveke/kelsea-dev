@@ -6,6 +6,8 @@
     <title>{{ page.title }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
 
     <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
@@ -28,8 +30,17 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <section id="about">
+      <div class="close-wrapper">
+        <a href="#" id="closeBtn"><i class="kels-close"></i></a>
+      </div>
+      <div class="success-state">
+        <h1>Thanks!</h1>
+        <p>I will be in touch.</p>
+      </div>
       <div class="contact-form">
-
+        <header>
+          <h1>Well Hello,</h1>
+        </header>
         <form action="https://api.parse.com/1/functions/hello" method="POST" class="horizontal-form">
           <div class="form-group">
             <div class="form-element">
@@ -46,7 +57,7 @@
             </div>
           </div>
           <div class="text-center">
-              <button class="btn btn-white">Send Message</button>
+              <button class="btn btn-white">Send</button>
           </div>
       </form>
 
@@ -68,14 +79,14 @@
             </div>
           </div>
           <div class="menu-button-wrapper">
-            <a href="#" id="menuButton"><img src="/img/hamburger.png"/></a>
+            <a href="#" id="menuButton"><i class="kels-hamburger"></i></a>
           </div>
         </section>
       </div>
         <section id="work" class="carousel slide">
           <div class="work-type-selector">
             <div class="menu-button-wrapper">
-              <a href="#" id="menuButton"><img src="/img/hamburger.png"/></a>
+              <a href="#" id="menuButton"><i class="kels-hamburger"></i></a>
             </div>
             <div class="btn-group" data-toggle="buttons">
               <label class="btn btn-primary active" id="web">
@@ -89,7 +100,7 @@
               </label>
             </div>
             <div class="back-to-top-wrapper">
-              <a href="#" id="backToTop"><img src="/img/uparrow.png"/></a>
+              <a href="#" id="backToTop"><i class="kels-arrow-down"></i></a>
             </div>
           </div>
 

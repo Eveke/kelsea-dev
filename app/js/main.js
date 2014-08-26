@@ -20,13 +20,17 @@
   $(document).on('click','.menu-button-wrapper',function(e){
     e.preventDefault();
     var $body = $('body');
-
-    if ($body.hasClass('is-showing-menu')) {
-      $body.removeClass('is-showing-menu');
-    } else {
-      $body.addClass('is-showing-menu');
-    }
+    $body.addClass('is-showing-menu');
   });
+
+  $(document).on('click','#closeBtn',function(e){
+    e.preventDefault();
+    var $body = $('body'),
+        $about = $('#about');
+
+    $about.removeClass();
+    $body.removeClass('is-showing-menu');
+  })
 
   $(document).on('click','#backToTop',function(e){
     e.preventDefault();
@@ -43,7 +47,9 @@
 
   $(document).on('submit','.contact-form form',function(e){
       e.preventDefault();
-      var $this = $(e.target);
+      var $this = $(e.target),
+          $button = $this.find('.btn'),
+          $about = $('#about');
 
       $.ajax({
           headers : {
@@ -54,9 +60,15 @@
           data: $this.serialize(),
           dataType: 'json',
           method: 'post',
-          success: function(data)
-          {
-            console.log(data);
+          beforeSend: function (xhr, settings) {
+            $button.text("Sending...");
+          },
+          success: function(data) {
+            $this.trigger('reset');
+            $about.removeClass('is-error').addClass('is-success');
+          },
+          error: function(data) {
+            $about.removeClass('is-success').addClass('is-error');
           }
         });
   });

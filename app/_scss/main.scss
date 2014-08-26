@@ -100,9 +100,47 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-$screen-sm:   768px;
-$screen-xs:   480px;
-$bio-spacing: 26px;
+   $screen-sm:   768px;
+   $screen-xs:   480px;
+   $bio-spacing: 26px;
+
+
+@font-face {
+ font-family: 'kelsea';
+ src:url('../fonts/kelsea.eot?-ke4jel');
+ src:url('../fonts/kelsea.eot?#iefix-ke4jel') format('embedded-opentype'),
+   url('../fonts/kelsea.woff?-ke4jel') format('woff'),
+   url('../fonts/kelsea.ttf?-ke4jel') format('truetype'),
+   url('../fonts/kelsea.svg?-ke4jel#kelsea') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+
+[class^="kels-"], [class*=" kels-"] {
+ font-family: 'kelsea';
+ speak: none;
+ @include font-size(18);
+ font-style: normal;
+ font-weight: normal;
+ font-variant: normal;
+ text-transform: none;
+ line-height: 1;
+
+ /* Better Font Rendering =========== */
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+
+.kels-close:before {
+ content: "\e600";
+}
+.kels-arrow-down:before {
+ content: "\e601";
+}
+.kels-hamburger:before {
+ content: "\e602";
+}
+
 
 html, body {
   height: 100%;
@@ -130,7 +168,7 @@ body {
   }
 
   .page-wrapper {
-    transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s;
+    transition: all .7s cubic-bezier(.45,-0.8,.55,1.8) 0.35s;
   }
 
   .pages-wrapper {
@@ -146,14 +184,15 @@ body {
          opacity: 0;
        }
 
-       #work {
-         opacity: 1;
-       }
-
       }
 
       .back-to-top-wrapper {
-        transform: rotateZ(180deg) !important;
+        transform: rotateZ(0deg) !important;
+      }
+
+      #work {
+        opacity: 1;
+        overflow-y: scroll;
       }
     }
 
@@ -161,11 +200,6 @@ body {
 
     .pages-wrapper {
       left: 100%;
-
-      .menu-button-wrapper {
-        position: fixed !important;
-        z-index: 10;
-      }
     }
 
     #contactLink {
@@ -177,33 +211,36 @@ body {
 
 .menu-button-wrapper {
   position: absolute;
-  top: 39px;
+  top: 20px;
   left: 15px;
-  min-height: 25px;
-  min-width: 35px;
+  height: 25px;
+  width: 35px;
   z-index: 5;
   color: #000;
 
+  a {
+    color: #000;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   @media(max-width: $screen-sm) {
-      min-height: 20px;
-      min-width: 27px;
+      height: 20px;
+      width: 27px;
+      top: 10px;
+      left: 5px;
 
       &:hover {
         opacity: 1;
       }
   }
-
-  a {
-    img {
-      width: 35px;
-      height: 25px;
-    }
-  }
 }
 
 #about {
   background-size: cover;
-  background-image: url('/img/hamburger.jpg');
+  background-position: center;
+  background-image: url('../img/hamburger.jpg');
   position: absolute;
   top: 0;
   left: 0;
@@ -211,6 +248,7 @@ body {
   bottom: 0;
   width: 100%;
   text-align: center;
+  color: #FFF;
 
   &:before {
     display: inline-block;
@@ -220,12 +258,69 @@ body {
     height: 100%;
   }
 
+  &.is-success {
+    background-color: #2DCD53;
+    background-image: none;
+
+    .success-state {
+      display: inline-block;
+    }
+    .contact-form {
+      display: none;
+    }
+  }
+
+  .close-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    color: #FFF;
+
+    a {
+      color: #FFF;
+      text-decoration: none;
+    }
+
+    @media(max-width: $screen-sm) {
+        left: 10px;
+        top: 10px;
+    }
+  }
+
+  .success-state {
+
+    display: none;
+
+    h1 {
+      color: #000; /* text color */
+      font-family: "Oswald", sans-serif;
+      @include font-size(20);
+      text-transform: uppercase;
+      margin-top: 0px;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  & > div {
+      vertical-align: middle;
+      display: inline-block;
+  }
+
   .contact-form {
-    vertical-align: middle;
-    display: inline-block;
     text-align: left;
     color: #FFF;
     width: 40%;
+
+    header h1 {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      @include font-size(24);
+    }
+
+    @media (max-width: $screen-xs) {
+      width: 90%;
+    }
 
     .background-image {
       position: absolute;
@@ -233,7 +328,7 @@ body {
       bottom: 0;
       right: 0;
       left: 0;
-      background-image: url(../img/contact-bkg.jpg);
+      background-image: url('../img/contact-bkg.jpg');
       background-size: cover;
       background-color: #000;
       -webkit-transition: all .5s ease-in-out;
@@ -366,7 +461,7 @@ body {
   min-height: 100%;
   max-height: 100%;
   position: relative;
-  transition: all .6s ease 0.35s;
+  transition: all .6s cubic-bezier(0.68, -1.55, 0.265, 0.55) 0.35s;
 
   .bio {
     vertical-align: middle;
@@ -374,11 +469,12 @@ body {
     text-align: center;
     width: 99.5%;
     position: absolute;
-    left: 30px;
+    left: 5%;
     bottom: 20%;
 
     .container {
       text-align: left;
+      width: auto;
 
       header {
         height: 9.316770186335%;
@@ -474,11 +570,9 @@ body {
 }
 
 #work {
-  overflow-y: scroll;
   height: 100%;
   background-color: #000;
   transition: all .6s ease-out;
-  /*opacity: 0;*/
 
   .carousel-control.left, .carousel-control.right {
     top: 270px;
@@ -497,6 +591,7 @@ body {
     header h1 {
       @include font-size(24);
       color: #000;
+      font-family: 'Oswald', sans-serif;
     }
 
     .info {
@@ -552,7 +647,7 @@ body {
         }
 
         .caption {
-          margin-top: 25px;
+          margin-top: 10px;
           @include font-size(12);
         }
       }
@@ -574,18 +669,38 @@ body {
     .menu-button-wrapper, .back-to-top-wrapper {
       position: absolute;
       display: block;
-      top: 39px; /*top padding + ((height of parent - height of element) / 2)*/
-
+      top: 37px; /*top padding + ((height of parent - height of element) / 2)*/
     }
+
 
     .menu-button-wrapper {
       left: 15px;
+
+      @media (max-width: $screen-sm) {
+        left: 5px;
+      }
+
+      a {
+        color: #FFF;
+      }
     }
 
     .back-to-top-wrapper {
       right: 15px;
+
+      @media (max-width: $screen-sm) {
+        right: 5px;
+      }
+
       transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      transform: rotateZ(0deg);
+      transform: rotateZ(180deg);
+
+      a {
+        color: #FFF;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
 
 
@@ -593,8 +708,8 @@ body {
     .btn-group {
       border-radius: 0px;
       .btn {
-        padding: 13px 35px;
-        @include font-size(18);
+        padding: 10px 20px;
+        @include font-size(14);
         border: none;
         border-radius: 0px;
         color: #FFF;
@@ -609,15 +724,7 @@ body {
 
   @media(max-width: $screen-sm) {
     opacity: 1;
-    overflow-y: initial;
-
-    .work-type-selector {
-      .btn-group {
-        .btn {
-          padding: 15px 30px;
-        }
-      }
-    }
+    overflow-x : initial;
 
     .carousel-indicators {
       top: 400px;
@@ -656,7 +763,6 @@ body {
 
           .content {
             margin-top: 20px;
-            max-height: 160px;
           }
         }
       }

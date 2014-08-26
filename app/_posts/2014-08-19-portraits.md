@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Portraits"
+title:  "Color Me Portrait"
 category: print
 
 mockups:
@@ -21,4 +21,6 @@ mockups:
     caption: "Portrait 5: Pink"
  
 ---
-**Project Goals:** When time permits, I have been exploring a new process where I start with a pencil drawing, snap a photo, pull it into photoshop and apply multiple contrast filters. From there, I create masks and remove pixels in a reverse process to create depth. I then apply a large bold background color and create textured patterns for the hair. 
+
+"Color Me Portrait" is a fun mini-series that gives me the opportunity to explore new color concepts, patterns, and textures. 
+Working with a reverse process, I create multiple contrast layers over the original pencil drawing and add/remove pixels from there.

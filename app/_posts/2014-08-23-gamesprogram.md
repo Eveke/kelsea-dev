@@ -22,4 +22,4 @@ mockups:
     
     
 ---
-**Project Goals:** The 2014 CrossFit Games Program was sold on-site at the 2014 Reebok CrossFit Games. The 120-page program contained a general history of the games, media highlights from the 17 qualifying regionals and athlete profiles as well as ads from our partners Reebok, Progenex and Rogue. 
+Sold on-site at the 2014 Reebok CrossFit Games, the 120-page program, contained a history of the games, highlights from the 17 qualifying regionals, athlete profiles, as well as ads from our partners; Reebok, Progenex, and Rogue. 

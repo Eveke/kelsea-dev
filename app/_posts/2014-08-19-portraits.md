@@ -22,5 +22,5 @@ mockups:
  
 ---
 
-"Color Me Portrait" is a fun mini-series that gives me the opportunity to explore new color concepts, patterns, and textures. 
-Working with a reverse process, I create multiple contrast layers over the original pencil drawing and add/remove pixels from there.
+"Color Me Portrait" is a fun series that gives me the opportunity to explore new color concepts, patterns, and textures. 
+Working with a reverse process, I create multiple contrast layers over the original pencil drawing and add or remove pixels from there.

@@ -5,21 +5,21 @@ category: print
 
 mockups:
   - image: /img/program-cover.jpg
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Program cover and inside cover illustration of all past female champs."
+    mobileImage: /img/program-cover-m.png
+    caption: "Program cover with inside illustration of past winners."
   - image: /img/program-toc.jpg
-    mobileImage: http://placekitten.com/g/50/50
+    mobileImage: /img/program-toc-m.png
     caption: "Table of contents."
   - image: /img/program-history.jpg
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Spread from the history section of the program."
+    mobileImage: /img/program-history-m.png
+    caption: "History spread."
   - image: /img/program-regional.jpg
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Example of a regional highlights spread."
+    mobileImage: /img/program-regional-m.png
+    caption: "Regional highlights spread."
   - image: /img/program-athletes.jpg
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Example of an athlete statistics and bio spread."
+    mobileImage: /img/program-athletes-m.png
+    caption: "Athlete profile spread."
     
     
 ---
-Sold on-site at the 2014 Reebok CrossFit Games, the 120-page program, contained a history of the games, highlights from the 17 qualifying regionals, athlete profiles, as well as ads from our partners; Reebok, Progenex, and Rogue. 
+Sold at the 2014 Reebok CrossFit Games, the 120 page program, contains a history of the games, highlights from the 17 qualifying regionals, athlete profiles, as well as ads from our partners; Reebok, Progenex, and Rogue. 

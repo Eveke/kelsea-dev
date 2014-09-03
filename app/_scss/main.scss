@@ -154,7 +154,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 
-  .page-wrapper, .pages-wrapper {
+  .page-wrapper, .pages-wrapper, #overflowHidden {
     overflow: hidden;
     background-color: #000;
     position: absolute;
@@ -193,6 +193,7 @@ body {
       #work {
         opacity: 1;
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
       }
     }
 

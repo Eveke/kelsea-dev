@@ -154,7 +154,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 
-  .page-wrapper, .pages-wrapper, #overflowHidden {
+  .page-wrapper, .pages-wrapper, #overflowWrapper {
     overflow: hidden;
     background-color: #000;
     position: absolute;
@@ -241,7 +241,7 @@ body {
 #about {
   background-size: cover;
   background-position: center;
-  background-image: url('../img/hamburger.jpg');
+  background-image: url('/img/hamburger.jpg');
   position: absolute;
   top: 0;
   left: 0;
@@ -329,7 +329,7 @@ body {
       bottom: 0;
       right: 0;
       left: 0;
-      background-image: url('../img/contact-bkg.jpg');
+      background-image: url('/img/contact-bkg.jpg');
       background-size: cover;
       background-color: #000;
       -webkit-transition: all .5s ease-in-out;
@@ -705,19 +705,37 @@ body {
     }
 
 
-
     .btn-group {
-      border-radius: 0px;
-      .btn {
-        padding: 10px 20px;
-        @include font-size(14);
-        border: none;
-        border-radius: 0px;
-        color: #FFF;
-        background-color: transparent;
+      width: 234px;
+    }
 
-        &.active {
+    .work-tabs {
+
+      height: 40px;
+
+      &::shadow {
+        border-radius: 0px;
+
+        #selectionBar {
           background-color: #282828;
+          height: 100%;
+        }
+      }
+    }
+
+    paper-tab {
+        cursor: pointer;
+
+        &::shadow {
+
+        .tab-content {
+          @include font-size(14);
+          color: #FFF;
+          text-transform: uppercase;
+        }
+
+        #tabContainer {
+          z-index: 3;
         }
       }
     }

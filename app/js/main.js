@@ -4,12 +4,19 @@
 
   var activateTab = function activateTab() {
     var category = $('#work .item.active').data('category');
-    $('.work-type-selector .btn').removeClass('active');
-    $('.work-type-selector #'+category).addClass('active');
+
+    document.getElementById('workTabs').selected = category;
+  };
+
+  var retargetLinks = function retargetLinks() {
+    $(document.links).filter(function() {
+        return this.hostname != window.location.hostname;
+    }).attr('target', '_blank');
   };
 
   var init = function init() {
     activateTab();
+    retargetLinks();
   };
 
   $(document).on('click','#viewWork',function(e){
@@ -37,7 +44,7 @@
     $('body').removeClass('is-showing-work');
   });
 
-  $(document).on('click','.work-type-selector .btn',function(e) {
+  $(document).on('click','.work-tabs paper-tab',function(e) {
     e.preventDefault();
     var $this = $(this),
         index = $.inArray($this.attr('id'),items);

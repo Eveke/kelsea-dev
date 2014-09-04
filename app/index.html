@@ -12,7 +12,7 @@ title: kelsea.io
 <div class="carousel-inner">
 
   {% assign sorted_posts = (site.posts | sort: 'categories') %}
-  {% for post in sorted_posts %}
+  {% for post in site.posts reversed %}
   <article class="item {{post.category}} {% if forloop.index0 == 0 %}active{% endif %}" data-category="{{post.category}}">
     <div class="container info">
       <header class="row text-center">

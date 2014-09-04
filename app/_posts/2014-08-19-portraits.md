@@ -5,20 +5,21 @@ category: print
 
 mockups:
   - image: /img/portrait-purple.png
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Portrait 1: Purple"
+    mobileImage: /img/portrait-purple-m.png
+    caption: "Portrait 5: Purple"
   - image: /img/portrait-green.png
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Portrait 2: Aqua"
+    mobileImage: /img/portrait-green-m.png
+    caption: "Portrait 4: Aqua"
   - image: /img/portrait-lime.png
-    mobileImage: http://placekitten.com/g/50/50
+    mobileImage: /img/portrait-lime-m.png
     caption: "Portrait 3: Lime"
-  - image: /img/portrait-orange.png
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Portrait 4: Orange"
   - image: /img/portrait-pink.png
-    mobileImage: http://placekitten.com/g/50/50
-    caption: "Portrait 5: Pink"
+    mobileImage: /img/portrait-pink-m.png
+    caption: "Portrait 2: Pink"
+  - image: /img/portrait-orange.png
+    mobileImage: /img/portrait-orange-m.png
+    caption: "Portrait 1: Orange"
+
  
 ---
 

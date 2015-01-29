@@ -724,6 +724,11 @@ body {
 
       height: 40px;
 
+      #selectionBar {
+        background-color: #282828;
+        height: 100%;
+      }
+
       &::shadow {
         border-radius: 0px;
 
@@ -736,6 +741,16 @@ body {
 
     paper-tab {
         cursor: pointer;
+
+        .tab-content {
+          @include font-size(14);
+          color: #FFF;
+          text-transform: uppercase;
+        }
+
+        #tabContainer {
+          z-index: 3;
+        }
 
         &::shadow {
 

@@ -29,8 +29,8 @@ title: kelsea.io
       <div class="container">
         {% for mockup in post.mockups %}
         <div class="mockup row text-center">
-          <img src="{{mockup.mobileImage}}" alt="{{mockup.caption}}" title="{{mockup.caption}}" class="mobile"/>
-          <img src="{{mockup.image}}" alt='{{mockup.caption}}' title='{{mockup.caption}}' class="desktop"/>
+          <img src="{{mockup.mobileImage}}" alt="{{mockup.caption}}" title="{{mockup.caption}}" class="mobile {{mockup.extraClasses}}"/>
+          <img src="{{mockup.image}}" alt='{{mockup.caption}}' title='{{mockup.caption}}' class="desktop {{mockup.extraClasses}}"/>
           <p class="caption">{{mockup.caption}}</p>
         <div>
         {% endfor %}

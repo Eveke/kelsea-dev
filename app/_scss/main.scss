@@ -633,9 +633,18 @@ body {
           display: none;
         }
 
+
+        .desktop.flat {
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+        }
+
         .desktop {
           display: inline-block;
-        }
+          -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 52, 0.4);
+          -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 52, 0.4);
+          box-shadow: 2px 2px 5px 0px rgba(50, 50, 52, 0.4);}
 
 
         @media(max-width: $screen-xs) {
